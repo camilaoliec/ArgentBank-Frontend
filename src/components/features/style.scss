@@ -1,0 +1,38 @@
+.features {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+@media (min-width: 920px) {
+    .features {
+      flex-direction: row;
+    }
+  }
+.features__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex: 1;
+    padding: 2.5rem;
+    width: 380px;
+}
+.features__item img { 
+    width: 100px;
+    border: 10px solid #00bc77;
+    border-radius: 50%;
+    padding: 1rem;
+}
+.features__item title {
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    margin-top: 16px;
+}
+.features__item p {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    color: #2c3e50;
+    font-size: 17px;
+    margin: 0;
+}
