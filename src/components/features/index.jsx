@@ -9,7 +9,7 @@ const Features = ({ image, alt = "", title, text }) => (
             </div>
     )
 
-Features.PropTypes = {
+Features.propTypes = {
     image: PropTypes.string,
     alt: PropTypes.string,
     title: PropTypes.string,

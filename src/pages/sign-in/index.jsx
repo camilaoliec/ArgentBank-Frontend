@@ -1,4 +1,5 @@
 import './style.scss'
+import { Link } from 'react-router-dom'
 
 function SignIn() {
     return (
@@ -17,7 +18,9 @@ function SignIn() {
                 <div className="input-remember">
                     <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
                 </div>
-                <button className='sign-in__button'><a href='./user'></a>Sign In</button>
+                <Link to='/user'>
+                    <button className='sign-in__button'>Sign In</button>
+                </Link>
             </div>
             
         </main>

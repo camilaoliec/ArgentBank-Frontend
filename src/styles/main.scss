@@ -19,6 +19,10 @@ html, body, #root {
 .main {
     flex: 1;
   }
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 p {
     display: block;
     margin-block-start: 1em;
