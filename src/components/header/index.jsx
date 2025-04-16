@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+// import { useStore } from "react-redux";
 import './style.scss'
 
 function Header() {
@@ -11,7 +12,7 @@ function Header() {
                 <NavLink to="/sign-in" className='navbar_icons--log'>
                     <i className="fa fa-user-circle"></i>
                     {/* <label className=''></label>{({ unlogged }) => unlogged ? "active" : ""}*/
-                        <p>Sign In</p> }
+                         }
                 </NavLink>
                 {/* <NavLink to="/" className={({ logged }) => logged ? "active" : ""}>
                     <i class="fa fa-sign-out"></i>
