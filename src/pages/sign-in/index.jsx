@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useState } from 'react'
 import './style.scss'
+import Button from '../../components/button';
 
 function SignIn() {
     const [email, setEmail] = useState("");
@@ -31,7 +32,7 @@ function SignIn() {
                     <input type="checkbox" id="remember-me" /><label htmlFor="remember-me">Remember me</label>
                 </div>
                 <Link to='/user'>
-                    <button className='sign-in__button'>Sign In</button>
+                    <Button className='sign-in__button'>Sign In</Button>
                 </Link>
             </div>
             
