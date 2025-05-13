@@ -9,7 +9,7 @@ function Header() {
           className="main-nav-logo-image"
           src="./img/argentBankLogo.png"
           alt="Argent Bank Logo"/>
-        <h1 class="sr-only">Argent Bank</h1>
+        <h1 className="sr-only">Argent Bank</h1>
       </NavLink>
       <div>
         <NavLink to="/user">user</NavLink>
