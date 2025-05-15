@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Form from '../../components/form'
 import './style.scss'
-import { userLogin } from '../../redux/userSlice'
+import { userBody, userLogin } from '../../redux/userSlice'
 
 
 const SignIn = () => {
@@ -19,10 +19,11 @@ const SignIn = () => {
                 password,
             }
         dispatch(userLogin(userData)).then((result) => {
-            if (result.payload) {
+            if (result.payload?.token) {
+                dispatch(userBody());
                 setEmail("");
                 setPassword("");
-                navigate("/user")
+                navigate("/user");
             }
         })
     }
