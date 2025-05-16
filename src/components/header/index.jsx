@@ -6,7 +6,7 @@ import './style.scss'
 
 function Header() {
   const userInfos = useSelector((state) => state.user.userInfos)
-  const isLogged = useSelector((state) => state.user.user !== null)
+  const isLogged = useSelector((state) => state.user.profile !== null)
 
   return (
     <nav className="main-nav">

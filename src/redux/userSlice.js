@@ -1,22 +1,41 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-
+// login - recebe token
 export const userLogin = createAsyncThunk(
   "user/userLogin",
   async (userData) => {
-    const request = await axios.post("http://localhost:3001/api/v1/user/login", userData);
-    const response = await request.data.body;
-    localStorage.setItem('user', JSON.stringify(response));
-    return response;
+    const response = await axios.post(
+      "http://localhost:3001/api/v1/user/login", 
+      userData
+    );
+    return response.data.body;
   }
 );
 
+// recupera o perfil do usuario autenticado
 export const userBody = createAsyncThunk(
   "user/userBody",
   async (_, { getState }) => {
-    const token = getState().user.user.token;
+    const token = getState().user.token;
     const response = await axios.get("http://localhost:3001/api/v1/user/profile", 
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return response.data.body;
+  }
+);
+
+export const editProfile = createAsyncThunk(
+  "user/editProfile",
+  async (userData, {getState}) => {
+    const token = getState().user.token;
+    const response = await axios.put(
+      "http://localhost:3001/api/v1/user/profile", 
+      userData,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -31,7 +50,7 @@ const userSlice = createSlice({
   name: "user",
   initialState: {
     loading: false,
-    user: null,
+    token: null,
     userInfos: null,
     error: null,
   },
@@ -39,17 +58,17 @@ const userSlice = createSlice({
     builder
     .addCase(userLogin.pending,(state) => {
       state.loading = true;
-      state.user = null;
+      state.token = null;
       state.error = null;
     })
     .addCase(userLogin.fulfilled,(state,action) => {
       state.loading = false;
-      state.user = action.payload;
+      state.token = action.payload.token;
       state.error = null;
     })
     .addCase(userLogin.rejected,(state,action) => {
       state.loading = false;
-      state.user = null;
+      state.token = null;
       if(action.error.message === 'Request failed with status code 401'){
         state.error = 'Accsess Denied! Invalid Credentials';
       }
@@ -59,6 +78,18 @@ const userSlice = createSlice({
     })
     .addCase(userBody.fulfilled, (state, action) => {
       state.userInfos = action.payload;
+    })
+    .addCase(editProfile.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    })
+    .addCase(editProfile.fulfilled, (state,action) => {
+      state.loading = false;
+      state.userInfos = action.payload;
+    })
+    .addCase(editProfile.rejected, (state, action) =>{
+      state.loading = false;
+      state.error = action.error.message
     })
   }
 });
