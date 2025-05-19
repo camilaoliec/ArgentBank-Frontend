@@ -23,7 +23,7 @@ function Form({ email, setEmail, password, setPassword, onSubmit, loading, error
                 <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">Remember me</label>
             </div>
-                <button  type="submit" className="sign-in-button">
+                <button type="submit" className="sign-in-button">
                     {loading ? "Loading..." : "Sign In"}
                 </button>
                 {error && <div className="Error">{error}</div>}

@@ -16,7 +16,7 @@
   box-sizing: border-box;
   background-color: white;
   width: 300px;
-  margin: 0 auto;
+  margin: 0 auto 50px;
   margin-top: 3rem;
   padding: 2rem;
 }
@@ -27,6 +27,7 @@
 
 .input-remember {
   display: flex;
+  align-items: flex-start;
 }
 
 .input-remember label {

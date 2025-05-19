@@ -1,13 +1,17 @@
 import { useSelector } from "react-redux";
 import "./style.scss";
 import { Navigate } from "react-router-dom";
-import { editProfile } from "../../redux/userSlice";
+// import { editProfile } from "../../redux/userSlice";
+import { useState } from "react";
+import EditNameForm from "../../components/EditNameForm";
 
 function User() {
   const token = useSelector((state) => state.user.token);
   const userInfos = useSelector((state) => state.user.userInfos);
   const loading = useSelector((state) => state.user.loading);
   // const editName = useSelector((state) => state.user.editName);
+
+  const [isEditing, setIsEditing] = useState(false)
 
   const firstName = userInfos?.firstName || "";
   const lastName = userInfos?.lastName || "";
@@ -26,7 +30,13 @@ function User() {
           <br />
           {firstName} {lastName}
         </h1>
-        <button className="edit-button">Edit Name</button>
+            {isEditing ? (
+              <EditNameForm onClose={() => setIsEditing(false)} />
+            ) : (
+              <>
+                <button onClick={() => setIsEditing(true)} className="edit-button">Edit Name</button>
+              </>
+            )}
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">
