@@ -12,6 +12,7 @@ function EditNameForm({ onClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log("dados enviados", {userName, firstName, lastName })
         dispatch(editProfile({ userName, firstName, lastName }))
         onClose()
     }
@@ -20,19 +21,28 @@ function EditNameForm({ onClose }) {
         <form onSubmit={handleSubmit} className="edit-name-form">
             <div className="input-wrapper-editName">
                 <label className="label-editName" htmlFor="userName">User Name:</label>
-                <input id="username" value={userName} onChange={(e) => setUserName(e.target.value)} />
+                <input 
+                    id="userName" 
+                    value={userName} 
+                    onChange={(e) => setUserName(e.target.value)} />
             </div>
             <div className="input-wrapper-editName">
                 <label className="label-editName" htmlFor="firstName">First Name:</label>
-                <input id="firstname" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                <input 
+                    id="firstName" 
+                    value={firstName} 
+                    onChange={(e) => setFirstName(e.target.value)} />
             </div>
             <div className="input-wrapper-editName">
                 <label className="label-editName" htmlFor="lastName">Last Name:</label>
-                <input id="lastname" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                <input 
+                    id="lastName" 
+                    value={lastName} 
+                    onChange={(e) => setLastName(e.target.value)} />
             </div>
             <div className="container-button">
-                <button>Save</button>
-                <button>Cancel</button>
+                <button type="submit" disabled={!userName || !firstName || !lastName}>Save</button>
+                <button type="button" onClick={onClose}>Cancel</button>
             </div>
         </form>
     )

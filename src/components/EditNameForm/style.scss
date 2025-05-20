@@ -31,9 +31,10 @@ input {
     display: flex;
     flex-direction: row;
     gap: 15px;
+    width: 100%;
 }
 button {
-    width: 150px;
+    width: 50%;
     height: 40px;
     padding: 8px;
     font-size: 1.1rem;

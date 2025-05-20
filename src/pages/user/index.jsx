@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import "./style.scss";
 import { Navigate } from "react-router-dom";
-// import { editProfile } from "../../redux/userSlice";
 import { useState } from "react";
 import EditNameForm from "../../components/EditNameForm";
 
@@ -9,13 +8,12 @@ function User() {
   const token = useSelector((state) => state.user.token);
   const userInfos = useSelector((state) => state.user.userInfos);
   const loading = useSelector((state) => state.user.loading);
-  // const editName = useSelector((state) => state.user.editName);
+
 
   const [isEditing, setIsEditing] = useState(false)
 
   const firstName = userInfos?.firstName || "";
   const lastName = userInfos?.lastName || "";
-  // const userName = userInfos?.userName || "";
 
   if (loading) return null;
   if (!token) {

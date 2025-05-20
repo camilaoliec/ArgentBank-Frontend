@@ -1,14 +1,17 @@
 import './style.scss'
+import heroImg from '../../assets/img/bank-tree.webp'
 import Features from "../../components/features"
-import chatIcon from '../../assets/icons/icon-chat.png'
-import moneyIcon from '../../assets/icons/icon-money.png'
-import secutityIcon from '../../assets/icons/icon-security.png'
+import chatIcon from '../../assets/icons/icon-chat.webp'
+import moneyIcon from '../../assets/icons/icon-money.webp'
+import secutityIcon from '../../assets/icons/icon-security.webp'
+
 
 
 function Home () {
   return (
     <main>
       <div className="hero">
+        <img src={heroImg} alt="Bank building with tree" className="hero-img" />
         <section className="hero-content">
           <h2 className="sr-only">Promoted Content</h2>
           <p className="subtitle">No fees.</p>
