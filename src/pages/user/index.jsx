@@ -9,11 +9,9 @@ function User() {
   const userInfos = useSelector((state) => state.user.userInfos);
   const loading = useSelector((state) => state.user.loading);
 
+  const [isEditing, setIsEditing] = useState(false);
 
-  const [isEditing, setIsEditing] = useState(false)
-
-  const firstName = userInfos?.firstName || "";
-  const lastName = userInfos?.lastName || "";
+  const userName = userInfos?.userName || "";
 
   if (loading) return null;
   if (!token) {
@@ -26,15 +24,17 @@ function User() {
         <h1>
           Welcome back
           <br />
-          {firstName} {lastName}
+          {userName}
         </h1>
-            {isEditing ? (
-              <EditNameForm onClose={() => setIsEditing(false)} />
-            ) : (
-              <>
-                <button onClick={() => setIsEditing(true)} className="edit-button">Edit Name</button>
-              </>
-            )}
+        {isEditing ? (
+          <EditNameForm onClose={() => setIsEditing(false)} />
+        ) : (
+          <>
+            <button onClick={() => setIsEditing(true)} className="edit-button">
+              Edit Name
+            </button>
+          </>
+        )}
       </div>
       <h2 className="sr-only">Accounts</h2>
       <section className="account">

@@ -12,7 +12,6 @@ function EditNameForm({ onClose }) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("dados enviados", {userName, firstName, lastName })
         dispatch(editProfile({ userName, firstName, lastName }))
         onClose()
     }
