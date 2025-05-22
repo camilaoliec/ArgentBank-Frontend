@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { editProfile } from "../../redux/userSlice"
 import { useState } from "react"
 import "./style.scss"
+import Button from "../button"
 
 function EditNameForm({ onClose }) {
     const dispatch = useDispatch()
@@ -40,8 +41,8 @@ function EditNameForm({ onClose }) {
                     onChange={(e) => setLastName(e.target.value)} />
             </div>
             <div className="container-button">
-                <button type="submit" disabled={!userName || !firstName || !lastName}>Save</button>
-                <button type="button" onClick={onClose}>Cancel</button>
+                <Button className="button-edit-form" type="submit" disabled={!userName || !firstName || !lastName}>Save</Button>
+                <Button className="button-edit-form" type="button" onClick={onClose}>Cancel</Button>
             </div>
         </form>
     )

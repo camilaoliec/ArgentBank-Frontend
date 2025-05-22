@@ -1,0 +1,13 @@
+.custon-button {
+    height: 40px;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+}

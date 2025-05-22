@@ -1,3 +1,5 @@
+import Button from "../button"
+
 
 function Form({ email, setEmail, password, setPassword, onSubmit, loading, error }) {
     return (
@@ -8,7 +10,10 @@ function Form({ email, setEmail, password, setPassword, onSubmit, loading, error
                 type="text" 
                 id="username"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)} />
+                onChange={(e) => setEmail(e.target.value)} 
+                autoComplete="username"
+                />
+                
             </div>
             <div className="input-wrapper">
                 <label htmlFor="password">Password</label>
@@ -17,15 +22,16 @@ function Form({ email, setEmail, password, setPassword, onSubmit, loading, error
                 id="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                autoComplete="current-password"
                  />
             </div>
             <div className="input-remember">
                 <input type="checkbox" id="remember-me" />
                 <label htmlFor="remember-me">Remember me</label>
             </div>
-                <button type="submit" className="sign-in-button">
+                <Button type="submit" className="sign-in-button" disabled={!email || !password}>
                     {loading ? "Loading..." : "Sign In"}
-                </button>
+                </Button>
                 {error && <div className="Error">{error}</div>}
             </form>
     )

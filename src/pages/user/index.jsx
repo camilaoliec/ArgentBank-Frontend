@@ -3,6 +3,7 @@ import "./style.scss";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import EditNameForm from "../../components/EditNameForm";
+import Button from "../../components/button";
 
 function User() {
   const token = useSelector((state) => state.user.token);
@@ -30,9 +31,9 @@ function User() {
           <EditNameForm onClose={() => setIsEditing(false)} />
         ) : (
           <>
-            <button onClick={() => setIsEditing(true)} className="edit-button">
+            <Button type="button" className="edit-button" onClick={() => setIsEditing(true)}>
               Edit Name
-            </button>
+            </Button>
           </>
         )}
       </div>
@@ -44,7 +45,7 @@ function User() {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <Button type="button" className="transaction-button">View transactions</Button>
         </div>
       </section>
       <section className="account">
@@ -54,7 +55,7 @@ function User() {
           <p className="account-amount-description">Available Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <Button type="button" className="transaction-button">View transactions</Button>
         </div>
       </section>
       <section className="account">
@@ -64,7 +65,7 @@ function User() {
           <p className="account-amount-description">Current Balance</p>
         </div>
         <div className="account-content-wrapper cta">
-          <button className="transaction-button">View transactions</button>
+          <Button type="button" className="transaction-button">View transactions</Button>
         </div>
       </section>
     </main>
