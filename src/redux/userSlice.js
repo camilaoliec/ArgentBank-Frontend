@@ -13,11 +13,12 @@ export const userLogin = createAsyncThunk(
   }
 );
 
-// recupera o perfil do usuario autenticado
+// recupera os dados do perfil do usuario
 export const userBody = createAsyncThunk(
   "user/userBody",
   async (_, { getState }) => {
     const token = getState().user.token;
+    console.log("fetching user body with token", token)
     const response = await axios.get("http://localhost:3001/api/v1/user/profile", 
       {
         headers: {
@@ -59,6 +60,11 @@ const userSlice = createSlice({
       state.token = null;
       state.userInfos = null;
       state.error = null;
+      localStorage.removeItem("token")
+    },
+    setToken: (state, action) => {
+      console.log("dispatch settoken payload:", action.payload)
+      state.token = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -101,5 +107,5 @@ const userSlice = createSlice({
   }
 });
 
-export const { logout } = userSlice.actions;
+export const { logout, setToken } = userSlice.actions;
 export default userSlice.reducer;

@@ -14,7 +14,7 @@ function User() {
 
   const userName = userInfos?.userName || "";
 
-  if (loading) return null;
+  if (loading || (!token && !userInfos)) return null;
   if (!token) {
     return <Navigate to="/sign-in" />;
   }

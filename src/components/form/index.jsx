@@ -1,7 +1,7 @@
 import Button from "../button"
 
 
-function Form({ email, setEmail, password, setPassword, onSubmit, loading, error }) {
+function Form({ email, setEmail, password, setPassword, rememberMe, setRememberMe, onSubmit, loading, error }) {
     return (
         <form onSubmit={onSubmit}>
             <div className="input-wrapper">
@@ -26,7 +26,10 @@ function Form({ email, setEmail, password, setPassword, onSubmit, loading, error
                  />
             </div>
             <div className="input-remember">
-                <input type="checkbox" id="remember-me" />
+                <input type="checkbox" id="remember-me"
+                checked={rememberMe}
+                onChange={(e) => setRememberMe(e.target.checked)}
+                />
                 <label htmlFor="remember-me">Remember me</label>
             </div>
                 <Button type="submit" className="sign-in-button" disabled={!email || !password}>
