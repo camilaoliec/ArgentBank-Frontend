@@ -18,7 +18,6 @@ export const userBody = createAsyncThunk(
   "user/userBody",
   async (_, { getState }) => {
     const token = getState().user.token;
-    console.log("fetching user body with token", token)
     const response = await axios.get("http://localhost:3001/api/v1/user/profile", 
       {
         headers: {
@@ -63,7 +62,6 @@ const userSlice = createSlice({
       localStorage.removeItem("token")
     },
     setToken: (state, action) => {
-      console.log("dispatch settoken payload:", action.payload)
       state.token = action.payload;
     },
   },

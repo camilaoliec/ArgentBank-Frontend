@@ -11,7 +11,6 @@ function App() {
   const dispatch = useDispatch()
   useEffect(() => {
     const savedToken = localStorage.getItem("token");
-    console.log("token from localstorage", savedToken);
     if (savedToken) {
       dispatch(setToken(savedToken));
       dispatch(userBody());

@@ -27,7 +27,6 @@ const SignIn = () => {
                 setEmail("");
                 setPassword("");
                 if (rememberMe) {
-                    console.log("salvando token no local storage", result.payload.token);
                     localStorage.setItem("token", result.payload.token)
                 }
                 navigate("/user");
