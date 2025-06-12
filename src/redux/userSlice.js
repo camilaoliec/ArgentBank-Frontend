@@ -1,7 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// login - recebe token
 export const userLogin = createAsyncThunk(
   "user/userLogin",
   async (userData) => {
@@ -13,7 +12,6 @@ export const userLogin = createAsyncThunk(
   }
 );
 
-// recupera os dados do perfil do usuario
 export const userBody = createAsyncThunk(
   "user/userBody",
   async (_, { getState }) => {

@@ -10,6 +10,7 @@ schemes:
   - http
 
 paths:
+# Original Backend
   /user/login:
     post:
       tags:
@@ -102,6 +103,7 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
+  # ENDPOINTS created for transactions
   /user/accounts:
     get:
       security:
@@ -223,7 +225,7 @@ securityDefinitions:
     type: apiKey
     name: Authorization
     in: header
-
+# Definitions:
 definitions:
   User:
     properties:
@@ -274,6 +276,7 @@ definitions:
     properties:
       userName:
         type: string
+  # Custom definitions
   Account:
     type: object
     properties:

@@ -1,23 +1,14 @@
 import { useSelector } from "react-redux";
 import "./style.scss";
-import { Navigate } from "react-router-dom";
 import { useState } from "react";
 import EditNameForm from "../../components/EditNameForm";
 import Button from "../../components/button";
 
 function User() {
-  const token = useSelector((state) => state.user.token);
   const userInfos = useSelector((state) => state.user.userInfos);
-  const loading = useSelector((state) => state.user.loading);
-
   const [isEditing, setIsEditing] = useState(false);
-
   const userName = userInfos?.userName || "";
 
-  if (loading || (!token && !userInfos)) return null;
-  if (!token) {
-    return <Navigate to="/sign-in" />;
-  }
 
   return (
     <main className="main bg-dark">
