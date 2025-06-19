@@ -4,26 +4,39 @@ import axios from "axios";
 export const userLogin = createAsyncThunk(
   "user/userLogin",
   async (userData) => {
-    const response = await axios.post(
-      "http://localhost:3001/api/v1/user/login", 
-      userData
+    const response = await fetch(
+      "http://localhost:3001/api/v1/user/login",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(userData)
+      }
     );
-    return response.data.body;
+
+    const data = await response.json();
+    return data.body;
   }
 );
 
 export const userBody = createAsyncThunk(
   "user/userBody",
-  async (_, { getState }) => {
+  async (userData, { getState }) => {
     const token = getState().user.token;
-    const response = await axios.get("http://localhost:3001/api/v1/user/profile", 
+    const response = await fetch(
+      "http://localhost:3001/api/v1/user/profile", 
       {
+        method: "GET",
         headers: {
+          "Contentent-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify(userData),
       }
     );
-    return response.data.body;
+    const data = await response.json();
+    return data.body;
   }
 );
 
@@ -31,16 +44,19 @@ export const editProfile = createAsyncThunk(
   "user/editProfile",
   async (userData, {getState}) => {
     const token = getState().user.token;
-    const response = await axios.put(
+    const response = await fetch(
       "http://localhost:3001/api/v1/user/profile", 
-      userData,
       {
+        method:"PUT",
         headers: {
+          "Content-type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        body: JSON.stringify(userData),
       }
     );
-    return response.data.body;
+    const data = await response.json();
+    return data.body;
   }
 );
 
