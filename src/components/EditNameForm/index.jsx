@@ -8,8 +8,8 @@ function EditNameForm({ onClose }) {
     const dispatch = useDispatch()
     const userInfos = useSelector((state) => state.user.userInfos)
     const [userName, setUserName] = useState(userInfos.userName || "")
-    const [firstName, setFirstName] = useState (userInfos.firstName)
-    const [lastName, setLastName] = useState (userInfos.lastName)
+    const [firstName] = useState (userInfos.firstName)
+    const [lastName] = useState (userInfos.lastName)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -31,14 +31,14 @@ function EditNameForm({ onClose }) {
                 <input 
                     id="firstName" 
                     value={firstName} 
-                    onChange={(e) => setFirstName(e.target.value)} />
+                    disabled />
             </div>
             <div className="input-wrapper-editName">
                 <label className="label-editName" htmlFor="lastName">Last Name:</label>
                 <input 
                     id="lastName" 
                     value={lastName} 
-                    onChange={(e) => setLastName(e.target.value)} />
+                    disabled />
             </div>
             <div className="container-button">
                 <Button className="button-edit-form" type="submit" disabled={!userName || !firstName || !lastName}>Save</Button>
