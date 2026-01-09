@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './style.scss';
 
 function Button ({ children, className = "", ...props }) {
@@ -6,6 +7,11 @@ function Button ({ children, className = "", ...props }) {
             {children}
         </button>
     )
+}
+
+Button.PropTypes = {
+    children: PropTypes.node.isRequired,
+    className:PropTypes.string
 }
 
 export default Button;
