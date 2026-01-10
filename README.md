@@ -1,3 +1,10 @@
+
+## Démo en ligne
+Vous pouvez consulter le frontend de ce projet déployé sur Netlify : [Argent Bank Frontend](https://melodious-hamster-77efee.netlify.app/)
+
+## Live Demo
+You can check the live frontend of this project deployed on Netlify: [Argent Bank Frontend](https://melodious-hamster-77efee.netlify.app/)
+
 ## À propos du projet
 
 Ce projet a été réalisé dans le cadre de la formation Intégrateur Web d’OpenClassrooms, en respectant les exigences pédagogiques de la formation et en appliquant les bonnes pratiques du développement web.
